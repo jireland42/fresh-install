@@ -1,0 +1,7 @@
+- name: Install Python tools
+  apt:
+    pkg:
+    - python3-venv
+    - python3-pip
+  tags:
+  - python

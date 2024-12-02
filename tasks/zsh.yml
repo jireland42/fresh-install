@@ -1,0 +1,18 @@
+- name: Install zsh
+  apt: name=zsh
+  tags:
+  - zsh
+- name: Change Shell
+  shell: chsh -s `which zsh`
+  tags:
+  - zsh
+- name: Install OhMyZsh
+  shell: sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+  tags:
+  - zsh
+- name: Install zsh auto-suggestions plugin
+  ansible.builtin.git:
+    repo: 'https://github.com/zsh-users/zsh-autosuggestions'
+    dest: ~/.oh-my-zsh/plugins/zsh-autosuggestions
+  tags:
+  - zsh
